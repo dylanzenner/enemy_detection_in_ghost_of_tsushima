@@ -2,3 +2,4 @@ python==3.9.5
 numpy==1.21.4
 opencv-python==4.5.4.58
 pywin32==302
+mss==6.1.0
