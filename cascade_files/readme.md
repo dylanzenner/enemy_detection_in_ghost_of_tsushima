@@ -330,7 +330,7 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -numPos 700 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1000 <br />
 <br>
 -numStages 12 <br />
 <br>
