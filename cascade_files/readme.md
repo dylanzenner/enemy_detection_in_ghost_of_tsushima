@@ -314,7 +314,7 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <details>
 <summary>Cascade 12 Parameters</summary>
 <br>
--data cascade_files/cascade_1/ <br />
+-data cascade_files/cascade_12/ <br />
 <br>
 -vec pos.vec <br />
 <br>
@@ -343,7 +343,7 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <details>
 <summary>Cascade 13 Parameters</summary>
 <br>
--data cascade_files/cascade_1/ <br />
+-data cascade_files/cascade_13/ <br />
 <br>
 -vec pos.vec <br />
 <br>
@@ -359,11 +359,11 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -numPos 700 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1200 <br />
 <br>
 -numStages 12 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
