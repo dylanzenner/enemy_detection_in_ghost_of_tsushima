@@ -22,23 +22,24 @@ def window_capture():
 positive_count = 0
 negative_count = 0
 
-loop_time = time.time()
-while True:
-    screenshot = window_capture()
-    cv.imshow("test", screenshot)
-
-    # print('FPS: {}'.format(1 / (time.time() - loop_time))) useful for seeing the FPS
+if __name__ == "__main__":
     loop_time = time.time()
+    while True:
+        screenshot = window_capture()
+        cv.imshow("test", screenshot)
 
-    key = cv.waitKey(1)
-    if key == ord("q"):
-        cv.destroyAllWindows()
-        break
-    elif key == ord("p"):
-        cv.imwrite("positive_images/{}.jpg".format(loop_time), screenshot)
-        positive_count += 1
-        print("Positive count: {}".format(positive_count))
-    elif key == ord("n"):
-        cv.imwrite("negative_images/{}.jpg".format(loop_time), screenshot)
-        negative_count += 1
-        print("Negative count: {}".format(negative_count))
+        # print('FPS: {}'.format(1 / (time.time() - loop_time))) useful for seeing the FPS
+        loop_time = time.time()
+
+        key = cv.waitKey(1)
+        if key == ord("q"):
+            cv.destroyAllWindows()
+            break
+        elif key == ord("p"):
+            cv.imwrite("positive_images/{}.jpg".format(loop_time), screenshot)
+            positive_count += 1
+            print("Positive count: {}".format(positive_count))
+        elif key == ord("n"):
+            cv.imwrite("negative_images/{}.jpg".format(loop_time), screenshot)
+            negative_count += 1
+            print("Negative count: {}".format(negative_count))
