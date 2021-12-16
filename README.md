@@ -4,5 +4,11 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dylanzenner/enemy_detection_in_ghost_of_tsushima)
 ![GitHub last commit](https://img.shields.io/github/last-commit/dylanzenner/enemy_detection_in_ghost_of_tsushima)
 
-# Enemy detection in Ghost of Tsushima
+# Enemy Detection in Ghost of Tsushima
+
+A cascade classifier built using OpenCV for detecting enemy NPCs in the 2020 action-adventure game *Ghost of Tsushima* by Sucker Punch Productions.
+
+
+
+
 
