@@ -130,3 +130,7 @@ Step 6 Run ```main.py```:
 -   We have finally reached the end. You can now run ```main.py``` after substituting ```cascade_enemy = cv.cascadeClassifier('path/to/your/cascade.xml file') ``` with the path to your cascade classifier file.
 
 # If all has successfully gone well up until this point you should get something similar to this:
+
+
+https://user-images.githubusercontent.com/54154602/146302340-bec8974b-ec7e-42bd-bb07-6512905e4654.mp4
+
