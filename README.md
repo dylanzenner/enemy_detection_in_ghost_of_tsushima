@@ -136,6 +136,6 @@ Step 6 Run ```main.py```:
 
 
 
-https://user-images.githubusercontent.com/54154602/146303359-ceca6965-6d6b-4042-83f0-6e6858fd4805.mp4
+<video src='https://user-images.githubusercontent.com/54154602/146303359-ceca6965-6d6b-4042-83f0-6e6858fd4805.mp4' width=180/>
 
 
