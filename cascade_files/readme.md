@@ -387,11 +387,11 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -numPos 700 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1200 <br />
 <br>
--numStages 12 <br />
+-numStages 14 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
@@ -413,13 +413,13 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -precalcIdxBufSize 6000 <br />
 <br>
--numPos 700 <br />
+-numPos 500 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1500 <br />
 <br>
--numStages 12 <br />
+-numStages 14 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
@@ -441,13 +441,13 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -precalcIdxBufSize 6000 <br />
 <br>
--numPos 700 <br />
+-numPos 600 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1200 <br />
 <br>
--numStages 12 <br />
+-numStages 14 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
@@ -469,13 +469,13 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -precalcIdxBufSize 6000 <br />
 <br>
--numPos 700 <br />
+-numPos 750 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1500 <br />
 <br>
 -numStages 12 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
@@ -497,13 +497,13 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -precalcIdxBufSize 6000 <br />
 <br>
--numPos 700 <br />
+-numPos 900 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1500 <br />
 <br>
--numStages 12 <br />
+-numStages 10 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
@@ -525,13 +525,13 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -precalcIdxBufSize 6000 <br />
 <br>
--numPos 700 <br />
+-numPos 450 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1200 <br />
 <br>
--numStages 12 <br />
+-numStages 10 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
@@ -553,13 +553,13 @@ As of 11/14/2021 cascade_10 is yielding the best results
 <br>
 -precalcIdxBufSize 6000 <br />
 <br>
--numPos 700 <br />
+-numPos 500 <br />
 <br>
--numNeg 700 <br />
+-numNeg 1000 <br />
 <br>
--numStages 12 <br />
+-numStages 10 <br />
 <br>
--maxFalseAlarmRate 0.2 <br />
+-maxFalseAlarmRate 0.3 <br />
 <br>
 -minHitRate 0.999 <br />
 </details>
