@@ -62,5 +62,71 @@ def generate_negative_description_file():
 -   Once you have the ```pos.txt``` file created you can now run the command ```path/to/opencv_createsamples.exe -info pos.txt -w 24 -h 24 -num number of rectangles you drew in the previous step (its okay to have this number larger than how many rectangles you drew) -vec pos.vec``` and this will create a vector file of the positive images which will be used to train the cascade classifier.
 -   If you get lost and need help follow the directions on this page https://docs.opencv.org/3.4/dc/d88/tutorial_traincascade.html
 
-### Step 4 Create a file to detect the enemies:
+### Step 4 Create functions to detect the enemies:
+-   For this step we create a function for finding the enemey locations on a given screenshot using the OpenCV algorithm MatchTemplate. You can find more about the MatchTemplate algorithm here https://docs.opencv.org/4.x/df/dfb/group__imgproc__object.html#ga586ebfb0a7fb604b35a23d85391329be
+```{python}
+    def find_enemies(self, zone_img, threshold=0.99, max_results=15):
+        """
+        Locates the enemy locations on the zone_img and determines the bounding box locations using the matchTemplate
+        algorithm
+        :param zone_img: The picture containing the enemies we are trying to detect
+        :param threshold: set to 0.99 because we are looking for the enemies in zone_img which have the highest matching pixels
+        :param max_results: set to 15 so we only find 15 enemies at a time. If we find more than 15 we will only take the locations of 15
+        :return: a list of enemy locations each in a rectangle form
+        """
+        result = cv.matchTemplate(zone_img, self.enemy_img, self.method)
 
+        locations = np.where(result >= threshold)
+        locations = list(zip(*locations[::-1]))
+
+        if not locations:
+            return np.array([], dtype=np.int32).reshape(0, 4)
+
+        rectangles = []
+        for loc in locations:
+            rect = [int(loc[0]), int(loc[1]), self.enemy_w, self.enemy_h]
+            # Add every box to the list twice in order to retain single (non-overlapping) boxes
+            rectangles.append(rect)
+            rectangles.append(rect)
+
+        rectangles, weights = cv.groupRectangles(rectangles, groupThreshold=1, eps=0.5)
+
+        if len(rectangles) > max_results:
+            rectangles = rectangles[:max_results]
+
+        return rectangles
+```
+
+-   Then we create a function to take those enemy locations and draw bounding boxes with them. Which results in a bounding box around the detected enemy NPC
+```{python}
+    def draw_rectangles(self, zone_img, rectangles):
+        """
+        Takes in the rectangle locations obtained from find() and draws those rectangles on the zone_img which
+        contains a full in game view of the player and surrounding area
+        :param zone_img: The image which contains the enemies we are trying to detect
+        :param rectangles: the locations of the detected enemies
+        :return: zone_img with rectangles drawn on
+        """
+        line_color = (0, 255, 0)
+        line_type = cv.LINE_4
+
+        for (x, y, w, h) in rectangles:
+            # determine the box positions
+            top_left = (x, y)
+            bottom_right = (x + w, y + h)
+            # draw the box
+            cv.rectangle(
+                zone_img, top_left, bottom_right, line_color, lineType=line_type
+            )
+
+        return zone_img
+```
+You can make any necessay changes you see fit to these function in the ```detection.py``` file within the src directory. You can use a different mathcing algorithm draw different types of bounding boxes, and even change the colors of the boxes.
+
+Step 5 Train the cascade classifier:
+-   We are almost done all thats left is to run the command ```path/to/opencv_traincascade.exe -data path/to/save/cascade/files/to -vec vector/file/to/use -bg negative.txt/file/path -w 24 -h 24 -numPos number of positive images to use -numNeg number of negative images to use -numStages number of stages to use -maxFalseAlarmRate 0.3(or whatever you'd like) -minHitRate 0.999 (or whatever you'd like) ``` which will train a casecade classifier. You can run as many of these as you see fit and change of the parameter values in order to fit your specific use case.
+
+Step 6 Run ```main.py```:
+-   We have finally reached the end. You can now run ```main.py``` after substituting ```cascade_enemy = cv.cascadeClassifier('path/to/your/cascade.xml file') ``` with the path to your cascade classifier file.
+
+# If all has successfully gone well up until this point you should get something similar to this:
