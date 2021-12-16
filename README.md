@@ -43,5 +43,24 @@ As stated in the function doc string it captures a screenshot of a specified win
 -   Once you have collected a sufficient amount of data (I collected 1000 images for both folders) move on to step 3.
 
 
+### Step 3 Prepare the training data:
+-   Now that we have the dataset we will need to prepare it for training
+-   In order to do this we will need a set of positive (contains enemies) and negative (does not contain enemies) samples.
+-   To create the negative description file we will create a function to loop through our ```negative_images``` folder and write the filename of each object to a file called ```neg.txt```
+```{python}
+def generate_negative_description_file():
+    """
+    Creates the required negative description file to be used for the cascade classifier
+    :return: None
+    """
+    with open("neg.txt", "w") as f:
+        for filename in os.listdir("negative_images"):
+            f.write("negative_images/" + filename + "\n")
+```
+-   Now we need to do the same for the positive images. It will be slightly more difficult with these since we will have to go through each image and draw a bounding box around every enemy we would like to detect (I had to go through 1000 images where most had upwards of 5 enemies. This process will take hours if you're using a large dataset).
+-   In order to create the ```pos.txt``` file we need to first run the command ```opencv_annotation --annotations=/path/to/annotations/output/file/file.txt --images=/path/to/image/folder/which/contains/the/positive/images``` inside of the pycharm terminal. This will open up the annotation tool and you'll be able to draw your bounding boxes around the enemies you want to detect (You'll have to do this in one sitting so if you have a large dataset make sure to have some coffee on hand).
+-   Once you have the ```pos.txt``` file created you can now run the command ```path/to/opencv_createsamples.exe -info pos.txt -w 24 -h 24 -num number of rectangles you drew in the previous step (its okay to have this number larger than how many rectangles you drew) -vec pos.vec``` and this will create a vector file of the positive images which will be used to train the cascade classifier.
+-   If you get lost and need help follow the directions on this page https://docs.opencv.org/3.4/dc/d88/tutorial_traincascade.html
 
+### Step 4 Create a file to detect the enemies:
 
