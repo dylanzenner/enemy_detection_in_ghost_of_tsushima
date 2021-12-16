@@ -135,7 +135,5 @@ Step 6 Run ```main.py```:
 
 
 
-
-<video src='https://user-images.githubusercontent.com/54154602/146303359-ceca6965-6d6b-4042-83f0-6e6858fd4805.mp4' width=180/>
-
+https://user-images.githubusercontent.com/54154602/146304393-91efa534-82db-41d2-b9a0-737a2eddbd41.mp4
 
